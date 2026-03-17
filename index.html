@@ -29,13 +29,27 @@
         }
 
         ..profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;   /* makes circle */
-    object-fit: cover;    /* keeps image proper */
-    border: 4px solid white;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-img::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 176px;
+    height: 176px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    z-index: -1;
+    animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 }
         }
 
